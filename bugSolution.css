@@ -1,0 +1,33 @@
+/* bugSolution.css */
+
+/* Correcting NaN results by handling potential division by zero */
+.example1 {
+  width: calc(100px / (var(--my-variable) || 1)); /* Added fallback value */
+}
+
+/* Correcting order of operations */
+.example2 {
+  width: calc((100px + 50px) * 0.5); /* Added parentheses for correct order */
+}
+
+/* Correcting incompatible units */
+.example3 {
+  width: calc(100% - 20px); /* Using compatible units */
+  /* or for percentage based width */
+  /* width: calc(100% - 20vw); */
+}
+
+/* handling negative calculation result*/
+.example4{
+  width: calc(max(0px, 100px - 200px)); /*Using max to prevent negative value*/
+}
+
+/*Using Variables*/
+:root {
+  --my-variable: 10;
+}
+
+/* Example of adding an error handling mechanism to address NaN */
+.example5 {
+  width: calc(var(--divisor) ? 100px / var(--divisor) : 100px);
+}
